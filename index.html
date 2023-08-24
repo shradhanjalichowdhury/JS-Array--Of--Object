@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Answer</h1>
+     <br>
+ <h1>Question  : "let studentRecords = [ {name: 'John', id: 123, marks : 98 },><br>
+    {name: 'Baba', id: 101, marks : 23 },<br>
+    {name: 'yaga', id: 200, marks : 45 },<br>
+    {name: 'Wick', id: 115, marks : 75 } ] "<br></h1>
+    <br>
+    <h2>1."We are interested in retrieving only the students' names; all the names should be in caps.<br>
+
+        ['JOHN', 'BABA', 'YAGA', 'WICK']"<br></h2>
+        <p>Ans: let studentNamesInCaps = studentRecords.map(student => student.name.toUpperCase());<br>
+
+            console.log(studentNamesInCaps);<br>The map function takes an array and applies a callback function to each element in the array<br> and return the output</p>
+            <br>
+            <h2>2."Suppose we have the same dataset as above but this time we want to get the details of students who scored more than 50 marks.<br>
+
+                [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]"</h2>
+                <p>Ans: let studentsMarks = studentRecords.filter(student => student.marks > 50);<br>
+
+                    console.log(studentsMarks);<br>
+                   <br> output:<br>
+                    [
+                      { name: 'John', id: 123, marks: 98 },<br>
+                      { name: 'Wick', id: 115, marks: 75 }
+                    ]<br>
+                    The filter function takes an array and applies a callback function to each element in the array. <br>The callback function returns true for elements that should be included in the filtered array and false for elements that should be excluded. 
+                    </p>
+                    <br>
+                    <h2>3.Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.</h2>
+                    <p>Ans:let students120 = studentRecords.filter(student => student.marks > 50 && student.id > 120);<br>
+
+                        console.log(students120);<br>
+                    output:[ { name: 'John', id: 123, marks: 98 } ]<br>
+                    In the filter function, the callback function checks if both conditions are true for each student. The condition student.marks > 50 checks if the student scored<br> more than 50 marks, and student.id > 120 checks if the student's ID <br>is greater than 120. If both conditions are true, the student will be included in the filtered array.</p>
+                    <br>
+                    <h2>4.Consider the same scenario we have discussed above, but this time we would like to know the sum total of the marks of the students.</h2>
+                    <p>Ans:let totalMarks = studentRecords.reduce((sum, student) => sum + student.marks, 0);<br>
+
+                        console.log(totalMarks);<br>
+                        output:total marks=241<br>
+                        In the reduce function, the callback function takes two parameters: sum and student.<br> The sum parameter keeps track of the accumulated total, and the student parameter represents<br> each element in the studentRecords array. The callback function adds the marks of each student to the sum in each iteration.
+                        </p>
+                        <br>
+                        <h2>5.This time we want to get only the names of the students who scored more than 50 marks from the same dataset used above.</h2>
+                        <p>Ans:let studentMarks = studentRecords<br>
+                            .filter(student => student.marks > 50)<br>
+                            .map(student => student.name);<br>
+                          
+                          console.log(studentMarks);<br>
+                        output:[ 'John', 'Wick' ]<br>In this code, the filter function is used to filter out the students who scored more than 50 marks, <br>just like we did in the previous example. The map function is then used to extract only their names from the filtered array.</p><br>
+                        <h2>6.This time we are required to print the sum of marks of the students with id > 120.</h2>
+                        <p>Ans:let sumOfMarks = studentRecords<br>
+                            .filter(student => student.id > 120)<br>
+                            .reduce((sum, student) => sum + student.marks, 0);<br>
+                          
+                          console.log(sumOfMarks);<br>
+                        output:143<br>In this code, the filter function is used to filter out the students with an ID greater than 120, <br>and then the reduce function is used to calculate the sum of their marks, </p>
+                        <br>
+                        <h2>7.This time we are required to print the total marks of the students with marks greater than 50 after a grace of 15 marks has been added to those students who scored less than 50.</h2>
+                        <p>Ans:let totalGrace = studentRecords<br>
+                            .map(student => ({ ...student, marks: student.marks < 50 ? student.marks + 15 : student.marks }))<br>
+                            .filter(student => student.marks > 50)<br>
+                            .reduce((sum, student) => sum + student.marks, 0);<br>
+                          
+                          console.log(totalGrace);<br>
+                        output:243<br>ap function is used to create a new array of students, where the marks of those who scored less than 50 are increased by 15 ( grace marks).<br>filter function is used to filter out the students who now have marks greater than 50<br> ( applying the grace). Finally, the reduce function is used to calculate the total marks of these filtered students. </p><br>
+                        <h2>8.Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array of objects. </h2>
+                        <p>Ans:let student1 = { name: 'shriyansh', class: '10th', rollNo: 101 };<br>
+                            let student2 = { name: 'raushan', class: '10th', rollNo: 102 };<br>
+                            let student3 = { name: 'rohan', class: '11th', rollNo: 103 };<br>
+                            let student4 = { name: 'Sophia', class: '12th', rollNo: 104 };<br>
+                            let student5 = { name: 'rahul', class: '10th', rollNo: 105 };<br>
+                            let student6 = { name: 'Mohit', class: '12th', rollNo: 106 };<br>
+                            let studentArray = [student1, student2, student3, student4, student5, student6];<br>
+                            
+                            console.log(studentArray);<br>
+                        </p>
+
+</body>
+</html>
